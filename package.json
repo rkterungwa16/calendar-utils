@@ -1,0 +1,27 @@
+{
+  "name": "calendar-utils",
+  "version": "1.0.0",
+  "description": "utilities to help implement a calendar ui",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node examples"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rkterungwa16/calendar-utils.git"
+  },
+  "keywords": [
+    "calendar",
+    "date"
+  ],
+  "author": "Terungwa Kombol",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rkterungwa16/calendar-utils/issues"
+  },
+  "homepage": "https://github.com/rkterungwa16/calendar-utils#readme",
+  "devDependencies": {
+    "ts-node": "^10.7.0"
+  }
+}
