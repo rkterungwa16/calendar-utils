@@ -32,6 +32,87 @@ export const getNextWeek = () => {
   };
 };
 
+export const getCurrentWeekDateRange = () => {
+  const currentDate = new Date();
+  const dayOfTheMonth = currentDate.getDate();
+  const dayOfTheCurrentWeek = currentDate.getDay();
+  const firstDay = dayOfTheMonth - dayOfTheCurrentWeek;
+  const firstDayOfTheCurrentWeek = new Date(
+    currentDate.setDate(firstDay)
+  ).toUTCString();
+  const lastDayOfTheCurrentWeek = new Date(
+    currentDate.setDate(firstDay + 6)
+  ).toUTCString();
+
+  return {
+    firstDayOfTheCurrentWeek,
+    lastDayOfTheCurrentWeek,
+  };
+};
+
+export const getPrevioustWeekDateRange = () => {
+  const currentDate = new Date();
+  // Get day of exactly one week ago.
+  const dayOfTheMonthAWeekAgo = currentDate.getDate() - 7;
+  const dayOfTheCurrentWeek = currentDate.getDay();
+
+  const firstDay = dayOfTheMonthAWeekAgo - dayOfTheCurrentWeek;
+  const firstDayOfPreviousWeek = new Date(
+    currentDate.setDate(firstDay)
+  ).toUTCString();
+  const lastDayOfPreviousWeek = new Date(
+    currentDate.setDate(firstDay + 6)
+  ).toUTCString();
+  return {
+    firstDayOfPreviousWeek,
+    lastDayOfPreviousWeek,
+  };
+};
+
+export const getCurrentMonthDateRage = () => {
+  const currentDate = new Date();
+  const currentMonth = currentDate.getMonth();
+  const prevMonth = currentMonth - 1;
+  const currentYear = new Date().getFullYear();
+  const totalNumberOfMonthDays = getTotalNumberOfDaysInSpecifiedMonth(
+    currentYear,
+    currentMonth
+  );
+  const firstDayOfCurrentMonth = new Date(currentDate.setDate(1)).toUTCString();
+
+  const lastDayOfCurrentMonth = new Date(
+    currentDate.setDate(totalNumberOfMonthDays)
+  ).toUTCString();
+  return {
+    firstDayOfCurrentMonth,
+    lastDayOfCurrentMonth,
+  };
+};
+
+export const getPreviousMonthDateRage = () => {
+  const currentDate = new Date();
+  const previousDate = new Date();
+  const currentMonth = currentDate.getMonth();
+  const previousMonth = currentMonth - 1;
+  const currentYear = new Date().getFullYear();
+  const totalNumberOfPreviousMonthDays = getTotalNumberOfDaysInSpecifiedMonth(
+    currentYear,
+    previousMonth
+  );
+
+  const firstDayOfPreviousMonth = new Date(
+    currentDate.setDate(1 - totalNumberOfPreviousMonthDays)
+  ).toUTCString();
+
+  const lastDayOfPreviousMonth = new Date(
+    previousDate.setDate(0)
+  ).toUTCString();
+  return {
+    firstDayOfPreviousMonth,
+    lastDayOfPreviousMonth,
+  };
+};
+
 /**
  * example: July of 2022 starts on a friday (index 5 of an array of week days)
  * @param month

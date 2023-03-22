@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/rkterungwa16/calendar-utils#readme",
   "devDependencies": {
+    "@types/node": "^17.0.36",
     "ts-node": "^10.7.0"
   }
 }
