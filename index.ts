@@ -39,10 +39,10 @@ export const getCurrentWeekDateRange = () => {
   const firstDay = dayOfTheMonth - dayOfTheCurrentWeek;
   const firstDayOfTheCurrentWeek = new Date(
     currentDate.setDate(firstDay)
-  ).toUTCString();
+  );
   const lastDayOfTheCurrentWeek = new Date(
     currentDate.setDate(firstDay + 6)
-  ).toUTCString();
+  );
 
   return {
     firstDayOfTheCurrentWeek,
@@ -59,10 +59,10 @@ export const getPrevioustWeekDateRange = () => {
   const firstDay = dayOfTheMonthAWeekAgo - dayOfTheCurrentWeek;
   const firstDayOfPreviousWeek = new Date(
     currentDate.setDate(firstDay)
-  ).toUTCString();
+  );
   const lastDayOfPreviousWeek = new Date(
     currentDate.setDate(firstDay + 6)
-  ).toUTCString();
+  );
   return {
     firstDayOfPreviousWeek,
     lastDayOfPreviousWeek,
@@ -78,11 +78,11 @@ export const getCurrentMonthDateRage = () => {
     currentYear,
     currentMonth
   );
-  const firstDayOfCurrentMonth = new Date(currentDate.setDate(1)).toUTCString();
+  const firstDayOfCurrentMonth = new Date(currentDate.setDate(1));
 
   const lastDayOfCurrentMonth = new Date(
     currentDate.setDate(totalNumberOfMonthDays)
-  ).toUTCString();
+  );
   return {
     firstDayOfCurrentMonth,
     lastDayOfCurrentMonth,
@@ -103,11 +103,11 @@ export const getPreviousMonthDateRage = () => {
 
   const firstDayOfPreviousMonth = new Date(
     currentDate.setDate(1 - totalNumberOfPreviousMonthDays)
-  ).toUTCString();
+  );
 
   const lastDayOfPreviousMonth = new Date(
     previousDate.setDate(0)
-  ).toUTCString();
+  );
   return {
     firstDayOfPreviousMonth,
     lastDayOfPreviousMonth,
@@ -130,9 +130,9 @@ export const getPreviousMonthsDateRage = (months = 6) => {
 
   const firstDayOfPreviousMonths = new Date(
     testDate.setDate(1 - previousMonths.reduce((prev, curr) => prev + curr, 0))
-  ).toUTCString();
+  );
 
-  const lastDayOfPreviousMonths = new Date().toUTCString();
+  const lastDayOfPreviousMonths = new Date();
   return {
     firstDayOfPreviousMonths,
     lastDayOfPreviousMonths,
