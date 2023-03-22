@@ -6,6 +6,7 @@ import {
   getCurrentWeekDateRange,
   getCurrentMonthDateRage,
   getPreviousMonthDateRage,
+  getPreviousMonthsDateRage,
 } from ".";
 const weekDays = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
 const months = [
@@ -190,6 +191,7 @@ console.log("getPrevioustWeekDateRange ---->>>", getPrevioustWeekDateRange());
 console.log("getCurrentWeekDateRange -->>>", getCurrentWeekDateRange());
 console.log("getCurrentMonthDateRage ---->>>>", getCurrentMonthDateRage());
 console.log("get previous month date range -->>", getPreviousMonthDateRage());
+console.log('getPreviousSixMonthDateRage', getPreviousMonthsDateRage())
 
 // Each month has theoritical 35 days. But these days includes those from previous month and those from next month.
 // Determine at what point of the 35 days does this current month start.

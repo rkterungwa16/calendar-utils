@@ -92,9 +92,10 @@ export const getCurrentMonthDateRage = () => {
 export const getPreviousMonthDateRage = () => {
   const currentDate = new Date();
   const previousDate = new Date();
+  const currentYear = currentDate.getFullYear();
   const currentMonth = currentDate.getMonth();
   const previousMonth = currentMonth - 1;
-  const currentYear = new Date().getFullYear();
+
   const totalNumberOfPreviousMonthDays = getTotalNumberOfDaysInSpecifiedMonth(
     currentYear,
     previousMonth
@@ -110,6 +111,31 @@ export const getPreviousMonthDateRage = () => {
   return {
     firstDayOfPreviousMonth,
     lastDayOfPreviousMonth,
+  };
+};
+
+export const getPreviousMonthsDateRage = (months = 6) => {
+  const testDate = new Date();
+  const currentDate = new Date();
+  const currentYear = currentDate.getFullYear();
+  const currentMonth = currentDate.getMonth();
+  const previousMonths = Array.from(
+    {
+      length: months,
+    },
+    (_, i) => i + 1
+  ).map((_month) =>
+    getTotalNumberOfDaysInSpecifiedMonth(currentYear, currentMonth - _month)
+  );
+
+  const firstDayOfPreviousMonths = new Date(
+    testDate.setDate(1 - previousMonths.reduce((prev, curr) => prev + curr, 0))
+  ).toUTCString();
+
+  const lastDayOfPreviousMonths = new Date().toUTCString();
+  return {
+    firstDayOfPreviousMonths,
+    lastDayOfPreviousMonths,
   };
 };
 
