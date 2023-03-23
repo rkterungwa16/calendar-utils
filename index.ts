@@ -115,7 +115,7 @@ export const getPreviousMonthDateRage = () => {
 };
 
 export const getPreviousMonthsDateRage = (months = 6) => {
-  const testDate = new Date();
+  const previousDate = new Date();
   const currentDate = new Date();
   const currentYear = currentDate.getFullYear();
   const currentMonth = currentDate.getMonth();
@@ -129,7 +129,7 @@ export const getPreviousMonthsDateRage = (months = 6) => {
   );
 
   const firstDayOfPreviousMonths = new Date(
-    testDate.setDate(1 - previousMonths.reduce((prev, curr) => prev + curr, 0))
+    previousDate.setDate(1 - previousMonths.reduce((prev, curr) => prev + curr, 0))
   );
 
   const lastDayOfPreviousMonths = new Date();
